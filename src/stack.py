@@ -16,7 +16,15 @@ class Stack:
 
     def __init__(self):
         """Конструктор класса Stack"""
-        self.top = None
+        self.__top = None
+
+    @property
+    def top(self):
+        return self.__top
+
+    @top.setter
+    def top(self, top):
+        self.__top = top
 
     def push(self, data):
         """
@@ -32,6 +40,6 @@ class Stack:
 
         :return: данные удаленного элемента
         """
-        deleted_element = self.top
+        deleted_element = self.top.data
         self.top = self.top.next_node
         return deleted_element
