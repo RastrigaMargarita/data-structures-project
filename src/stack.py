@@ -10,7 +10,6 @@ class Node:
         self.data = data
         self.next_node = next_node
 
-
 class Stack:
     """Класс для стека"""
 
@@ -43,3 +42,14 @@ class Stack:
         deleted_element = self.top.data
         self.top = self.top.next_node
         return deleted_element
+
+    def __str__(self):
+        """
+        :return: представление объекта
+        """
+        string_to_return = self.top.data
+        next_node = self.top.next_node
+        while next_node != None:
+            string_to_return += ("\\n" + next_node.data)
+            next_node = next_node.next_node
+        return string_to_return
