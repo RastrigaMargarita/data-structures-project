@@ -20,6 +20,9 @@ class TestStack(unittest.TestCase):
         stack.push('data1')
         stack.push('data2')
         stack.push('data3')
+
+        self.assertEqual(str(stack), "data3\\ndata2\\ndata1")
+
         self.assertEqual(stack.top.data, 'data3')
         self.assertEqual(stack.top.next_node.data, 'data2')
         self.assertEqual(stack.top.next_node.next_node.data, 'data1')
