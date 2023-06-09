@@ -11,6 +11,8 @@ class TestNode(unittest.TestCase):
         self.n2 = Node("a")
         self.assertEqual(self.n1.data, 5)
         self.assertEqual(self.n2.data, "a")
+        self.n2.data = "a2"
+        self.assertEqual(self.n2.data, "a2")
 
 
 class TestStack(unittest.TestCase):
@@ -27,3 +29,8 @@ class TestStack(unittest.TestCase):
         self.assertEqual(queue.tail.next_node, None)
 
         self.assertEqual(str(queue), "data1\\ndata2\\ndata3")
+
+        assert queue.dequeue() == 'data1'
+        assert queue.dequeue() == 'data2'
+        assert queue.dequeue() == 'data3'
+        assert queue.dequeue() is None
