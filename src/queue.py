@@ -23,7 +23,7 @@ class Node:
 
     @data.setter
     def data(self, value):
-        self.data = value
+        self.__data = value
 
 
 class Queue:
@@ -55,7 +55,10 @@ class Queue:
 
         :return: данные удаленного элемента
         """
-        node_to_return = self.head
+        if self.head == None:
+            return None
+
+        node_to_return = self.head.data
 
         if self.tail is not None:
             self.head = self.head.next_node
