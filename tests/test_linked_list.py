@@ -29,3 +29,26 @@ class TestLinkedList(unittest.TestCase):
 
         # Печатаем данные
         assert str(ll) == "{'id': 0} -> {'id': 1} -> {'id': 2} -> {'id': 3} -> None"
+
+        ll = LinkedList()
+
+        ll.insert_beginning({'id': 1, 'username': 'lazzy508509'})
+        ll.insert_at_end({'id': 2, 'username': 'mik.roz'})
+        ll.insert_beginning({'id': 0, 'username': 'serebro'})
+
+        # метод to_list()
+        lst = ll.to_list()
+        assert ll.to_list() == [{'id': 0, 'username': 'serebro'}, {'id': 1, 'username': 'lazzy508509'}, {'id': 2, 'username': 'mik.roz'}]
+
+        # метод get_data_by_id()
+        user_data = ll.get_data_by_id(2)
+        assert user_data == {'id': 2, 'username': 'mik.roz'}
+
+        # работа блока try/except
+        ll.insert_at_end('idusername')
+        ll.insert_at_end({'id': 2, 'username': 'mosh_s'})
+
+        user_data = ll.get_data_by_id(2)
+        assert user_data == {'id': 2, 'username': 'mik.roz'}
+        user_data = ll.get_data_by_id(88)
+        assert user_data == None
